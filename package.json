@@ -4,10 +4,11 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ freehere107/alphaevo",
-    "create-local": "graph create --node http://localhost:8020/ freehere107/alphaevo",
-    "remove-local": "graph remove --node http://localhost:8020/ freehere107/alphaevo",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 freehere107/alphaevo"
+    "prudction": "graph build subgraph-production.yaml",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/",
+    "create-local": "graph create --node http://localhost:8020/",
+    "remove-local": "graph remove --node http://localhost:8020/",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.19.0",

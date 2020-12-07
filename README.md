@@ -6,13 +6,13 @@ Evolution Land is a virtual simulation blockchain game that supports cross-chain
 
 This test subgraph can be found on The Graph Hosted Service at https://thegraph.com/explorer/subgraph/freehere107/alphaevo
 
-### install 
+### Install 
 
 ```shell script
 yarn install
 graph codegen
 graph build
- graph deploy 
+graph deploy 
 ```
 
 ### Getting started with querying 
