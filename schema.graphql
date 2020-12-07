@@ -1,0 +1,30 @@
+enum TreasureStatus {
+    Unlock
+    Locked
+}
+
+enum TreasureType {
+    Gold
+    Silver
+}
+
+type Treasure @entity {
+  id: ID!
+  buyer: Bytes!
+  price: BigDecimal!
+  buyTime: Int!
+  txid: Bytes!
+  amount: BigDecimal!
+  boxType: TreasureType!
+  status: TreasureStatus!
+}
+
+
+type TreasureOpen @entity {
+  id: ID!
+  owner: Bytes!
+  ringValue: BigDecimal!
+  tokenId: BigInt!
+  txid: Bytes!
+  boxIndex: BigInt!
+}

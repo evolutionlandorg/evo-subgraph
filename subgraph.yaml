@@ -1,0 +1,47 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: DrillLuckyBox
+    network: ropsten
+    source:
+      address: "0xF72361096f11d7E4e45046d7a83726b1A9107D5E"
+      abi: Contract
+      startBlock: 9150466
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Treasure
+      abis:
+        - name: Contract
+          file: ./abis/drillLuckyBox.json
+      eventHandlers:
+        - event: GoldBoxSale(indexed address,uint256,uint256)
+          handler: handleGoldBoxSale
+        - event: SilverBoxSale(indexed address,uint256,uint256)
+          handler: handleSilverBoxSale
+      file: ./src/drillLuckybox.ts
+
+  - kind: ethereum/contract
+    name: DrillTokenBack
+    network: ropsten
+    source:
+      address: "0xA10D0C6e04845A5e998d1936249A30563c553417"
+      abi: Contract
+      startBlock: 9150417
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Treasure
+      abis:
+        - name: Contract
+          file: ./abis/drillTakeBack.json
+      eventHandlers:
+        - event: OpenBox(indexed address,indexed uint256,uint256,uint256)
+          handler: handleOpenBox
+      file: ./src/drillTakeBack.ts
