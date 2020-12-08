@@ -30,7 +30,7 @@ dataSources:
     network: ropsten
     source:
       address: "0xA10D0C6e04845A5e998d1936249A30563c553417"
-      abi: Contract
+      abi: DrillTakeBack
       startBlock: 9150417
     mapping:
       kind: ethereum/events
@@ -39,8 +39,10 @@ dataSources:
       entities:
         - Treasure
       abis:
-        - name: Contract
+        - name: DrillTakeBack
           file: ./abis/drillTakeBack.json
+        - name: DrillBase
+          file: ./abis/drillBase.json
       eventHandlers:
         - event: OpenBox(indexed address,indexed uint256,uint256,uint256)
           handler: handleOpenBox
@@ -66,3 +68,24 @@ dataSources:
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/objectOwnership.ts
+
+  - kind: ethereum/contract
+    name: Drill
+    network: ropsten
+    source:
+      address: "0x765590F6003398588858911DfEecC622BA69cFFe"
+      abi: DrillBase
+      startBlock: 7027495
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/drill.ts
+      entities:
+        - Drill
+      abis:
+        - name: DrillBase
+          file: ./abis/drillBase.json
+      eventHandlers:
+        - event: Create(indexed address,indexed uint256,uint16,uint256)
+          handler: handleCreate

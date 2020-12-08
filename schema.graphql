@@ -34,6 +34,7 @@ type TreasureOpen @entity {
   tokenId: BigInt!
   txid: Bytes!
   boxIndex: BigInt!
+  drill: Drill!
 }
 
 type NFTTransfer @entity {
@@ -42,4 +43,12 @@ type NFTTransfer @entity {
   to: Bytes
   tokenId: String!
   nftType: NFTType!
+}
+
+type Drill @entity {
+  id: ID!
+  owner: Bytes!
+  tokenId: String!
+  createTime: Int!
+  grade: Int!
 }
