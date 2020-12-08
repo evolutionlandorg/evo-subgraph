@@ -8,6 +8,13 @@ enum TreasureType {
     Silver
 }
 
+enum NFTType {
+    Land
+    Apostle
+    MirrorKitty
+    Drill
+}
+
 type Treasure @entity {
   id: ID!
   buyer: Bytes!
@@ -27,4 +34,12 @@ type TreasureOpen @entity {
   tokenId: BigInt!
   txid: Bytes!
   boxIndex: BigInt!
+}
+
+type NFTTransfer @entity {
+  id: ID!
+  from: Bytes!
+  to: Bytes
+  tokenId: String!
+  nftType: NFTType!
 }

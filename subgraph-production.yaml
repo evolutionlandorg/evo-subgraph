@@ -45,3 +45,24 @@ dataSources:
         - event: OpenBox(indexed address,indexed uint256,uint256,uint256)
           handler: handleOpenBox
       file: ./src/drillTakeBack.ts
+
+  - kind: ethereum/contract
+    name: ObjectOwnership
+    network: ropsten
+    source:
+      address: "0x14a4123da9ad21b2215dc0ab6984ec1e89842c6d"
+      abi: Contract
+      startBlock: 6586582
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Treasure
+      abis:
+        - name: Contract
+          file: ./abis/objectOwnership.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/objectOwnership.ts

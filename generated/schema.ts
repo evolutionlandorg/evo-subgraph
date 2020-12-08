@@ -181,3 +181,78 @@ export class TreasureOpen extends Entity {
     this.set("boxIndex", Value.fromBigInt(value));
   }
 }
+
+export class NFTTransfer extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save NFTTransfer entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save NFTTransfer entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("NFTTransfer", id.toString(), this);
+  }
+
+  static load(id: string): NFTTransfer | null {
+    return store.get("NFTTransfer", id) as NFTTransfer | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get from(): Bytes {
+    let value = this.get("from");
+    return value.toBytes();
+  }
+
+  set from(value: Bytes) {
+    this.set("from", Value.fromBytes(value));
+  }
+
+  get to(): Bytes | null {
+    let value = this.get("to");
+    if (value === null || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toBytes();
+    }
+  }
+
+  set to(value: Bytes | null) {
+    if (value === null) {
+      this.unset("to");
+    } else {
+      this.set("to", Value.fromBytes(value as Bytes));
+    }
+  }
+
+  get tokenId(): string {
+    let value = this.get("tokenId");
+    return value.toString();
+  }
+
+  set tokenId(value: string) {
+    this.set("tokenId", Value.fromString(value));
+  }
+
+  get nftType(): string {
+    let value = this.get("nftType");
+    return value.toString();
+  }
+
+  set nftType(value: string) {
+    this.set("nftType", Value.fromString(value));
+  }
+}
