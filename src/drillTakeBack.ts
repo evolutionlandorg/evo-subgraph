@@ -14,7 +14,8 @@ export function handleOpenBox(event: OpenBox): void {
     treasure.owner = event.params.user
     treasure.ringValue = event.params.value.toBigDecimal()
     treasure.txid = event.transaction.hash
-    treasure.tokenId = event.params.tokenId
+    treasure.tokenId = event.params.tokenId.toHex()
     treasure.drill = drill.id
+    treasure.openTime = event.block.timestamp.toI32()
     treasure.save()
 }

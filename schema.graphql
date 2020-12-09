@@ -31,10 +31,11 @@ type TreasureOpen @entity {
   id: ID!
   owner: Bytes!
   ringValue: BigDecimal!
-  tokenId: BigInt!
+  tokenId: String!
   txid: Bytes!
   boxIndex: BigInt!
   drill: Drill!
+  openTime: Int!
 }
 
 type NFTTransfer @entity {
