@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: DrillLuckyBox
-    network: ropsten
+    network: mainnet
     source:
-      address: "0xF72361096f11d7E4e45046d7a83726b1A9107D5E"
+      address: "0xc7D7E731d6bf9182701096adCd5bba3bb0CF76fc"
       abi: Contract
-      startBlock: 9150466
+      startBlock: 11358941
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -27,11 +27,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: DrillTokenBack
-    network: ropsten
+    network: mainnet
     source:
-      address: "0xA10D0C6e04845A5e998d1936249A30563c553417"
+      address: "0x8d7af9d2310016712b8f269df266f957cb12a27b"
       abi: DrillTakeBack
-      startBlock: 9150417
+      startBlock: 11358817
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -50,11 +50,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: ObjectOwnership
-    network: ropsten
+    network: mainnet
     source:
-      address: "0x5eA9ea8E80230E514b5e023e8d956550a22D02c6"
+      address: "0x14a4123da9ad21b2215dc0ab6984ec1e89842c6d"
       abi: Contract
-      startBlock: 7027495
+      startBlock: 6586582
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -71,11 +71,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: Drill
-    network: ropsten
+    network: mainnet
     source:
-      address: "0x765590F6003398588858911DfEecC622BA69cFFe"
+      address: "0x5731a6ae4AE4Dc582f2e692F1a2c963C6e01C585"
       abi: DrillBase
-      startBlock: 7027495
+      startBlock: 11358557
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
