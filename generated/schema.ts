@@ -341,3 +341,70 @@ export class Drill extends Entity {
     this.set("grade", Value.fromI32(value));
   }
 }
+
+export class StakedHistory extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save StakedHistory entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save StakedHistory entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("StakedHistory", id.toString(), this);
+  }
+
+  static load(id: string): StakedHistory | null {
+    return store.get("StakedHistory", id) as StakedHistory | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get owner(): Bytes {
+    let value = this.get("owner");
+    return value.toBytes();
+  }
+
+  set owner(value: Bytes) {
+    this.set("owner", Value.fromBytes(value));
+  }
+
+  get amount(): BigDecimal {
+    let value = this.get("amount");
+    return value.toBigDecimal();
+  }
+
+  set amount(value: BigDecimal) {
+    this.set("amount", Value.fromBigDecimal(value));
+  }
+
+  get createTime(): i32 {
+    let value = this.get("createTime");
+    return value.toI32();
+  }
+
+  set createTime(value: i32) {
+    this.set("createTime", Value.fromI32(value));
+  }
+
+  get historyType(): string {
+    let value = this.get("historyType");
+    return value.toString();
+  }
+
+  set historyType(value: string) {
+    this.set("historyType", Value.fromString(value));
+  }
+}

@@ -89,3 +89,24 @@ dataSources:
       eventHandlers:
         - event: Create(indexed address,indexed uint256,uint16,uint256)
           handler: handleCreate
+
+  - kind: ethereum/contract
+    name: Teller
+    network: mainnet
+    source:
+      address: "0x5731a6ae4AE4Dc582f2e692F1a2c963C6e01C585"
+      abi: DrillBase
+      startBlock: 11358557
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/drill.ts
+      entities:
+        - Drill
+      abis:
+        - name: DrillBase
+          file: ./abis/drillBase.json
+      eventHandlers:
+        - event: Create(indexed address,indexed uint256,uint16,uint256)
+          handler: handleCreate

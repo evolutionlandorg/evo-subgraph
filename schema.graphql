@@ -53,3 +53,17 @@ type Drill @entity {
   createTime: Int!
   grade: Int!
 }
+
+enum StakedHistoryType {
+    Locked
+    Unlocked
+    Dividend
+}
+
+type StakedHistory @entity {
+  id: ID!
+  owner: Bytes!
+  amount: BigDecimal!
+  createTime: Int!
+  historyType: StakedHistoryType!
+}
