@@ -13,6 +13,7 @@ enum NFTType {
     Apostle
     MirrorKitty
     Drill
+    Other
 }
 
 type Treasure @entity {

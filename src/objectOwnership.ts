@@ -32,6 +32,6 @@ function getAssetTypeByTokenId(tokenId: string, to: Address): string {
             }
             return "Drill"
         default:
-            return ""
+            return "Other"
     }
 }
