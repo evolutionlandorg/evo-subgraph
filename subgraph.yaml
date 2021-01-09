@@ -103,7 +103,7 @@ dataSources:
       language: wasm/assemblyscript
       file: ./src/evolutionTeller.ts
       entities:
-        - Drill
+        - StakedHistory
       abis:
         - name: EvolutionTeller
           file: ./abis/evolutionTeller.json

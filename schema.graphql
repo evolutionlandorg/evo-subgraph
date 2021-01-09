@@ -68,3 +68,8 @@ type StakedHistory @entity {
   createTime: Int!
   historyType: StakedHistoryType!
 }
+
+type StakedReward @entity {
+  id: ID!
+  amount: BigDecimal!
+}
