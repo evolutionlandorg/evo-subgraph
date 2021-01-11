@@ -22,6 +22,7 @@ export function handleRewardPaid(event: RewardPaid): void {
     if (paid === null) {
         paid = new StakedReward(event.params.account.toHex())
         paid.amount = event.params.reward.toBigDecimal()
+        paid.owner = event.params.account
     } else {
         paid.amount = paid.amount.plus(event.params.reward.toBigDecimal())
     }

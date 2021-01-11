@@ -72,4 +72,5 @@ type StakedHistory @entity {
 type StakedReward @entity {
   id: ID!
   amount: BigDecimal!
+  owner: Bytes!
 }

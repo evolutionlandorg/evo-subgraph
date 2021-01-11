@@ -447,4 +447,13 @@ export class StakedReward extends Entity {
   set amount(value: BigDecimal) {
     this.set("amount", Value.fromBigDecimal(value));
   }
+
+  get owner(): Bytes {
+    let value = this.get("owner");
+    return value.toBytes();
+  }
+
+  set owner(value: Bytes) {
+    this.set("owner", Value.fromBytes(value));
+  }
 }
