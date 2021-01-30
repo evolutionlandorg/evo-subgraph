@@ -532,4 +532,31 @@ export class ItemEquip extends Entity {
   set owner(value: Bytes) {
     this.set("owner", Value.fromBytes(value));
   }
+
+  get objectClassExt(): i32 {
+    let value = this.get("objectClassExt");
+    return value.toI32();
+  }
+
+  set objectClassExt(value: i32) {
+    this.set("objectClassExt", Value.fromI32(value));
+  }
+
+  get objectClass(): i32 {
+    let value = this.get("objectClass");
+    return value.toI32();
+  }
+
+  set objectClass(value: i32) {
+    this.set("objectClass", Value.fromI32(value));
+  }
+
+  get grade(): i32 {
+    let value = this.get("grade");
+    return value.toI32();
+  }
+
+  set grade(value: i32) {
+    this.set("grade", Value.fromI32(value));
+  }
 }

@@ -91,5 +91,7 @@ type ItemEquip @entity {
   index: Int!
   itemTokenId: String!
   owner: Bytes!
+  objectClassExt: Int!
+  objectClass: Int!
+  grade: Int!
 }
-

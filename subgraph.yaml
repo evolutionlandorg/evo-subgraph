@@ -134,6 +134,8 @@ dataSources:
           file: ./abis/landResource.json
         - name: ISettingsRegistry
           file: ./abis/ISettingsRegistry.json
+        - name: IMetaDataTeller
+          file: ./abis/metaDataTeller.json
       eventHandlers:
         - event: Equip(indexed uint256,address,uint256,address,address,uint256)
           handler: handleEquip
