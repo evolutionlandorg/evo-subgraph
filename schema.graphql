@@ -89,6 +89,7 @@ type ItemEquip @entity {
   resource: ResourceType!
   landTokenId: String!
   index: Int!
-  ItemTokenId: String!
+  itemTokenId: String!
+  owner: Bytes!
 }
 

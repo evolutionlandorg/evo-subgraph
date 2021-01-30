@@ -8,8 +8,9 @@ export function handleEquip(event: Equip): void {
     let equip = new ItemEquip(event.params.id.toHex())
     equip.landTokenId = event.params.tokenId.toHex()
     equip.index = event.params.index.toI32()
-    equip.ItemTokenId = event.params.id.toHex()
+    equip.itemTokenId = event.params.id.toHex()
     equip.resource = checkResourceType(event.params.resource.toHexString(), event.address)
+    equip.owner = event.params.staker
     equip.save()
 }
 

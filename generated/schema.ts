@@ -515,12 +515,21 @@ export class ItemEquip extends Entity {
     this.set("index", Value.fromI32(value));
   }
 
-  get ItemTokenId(): string {
-    let value = this.get("ItemTokenId");
+  get itemTokenId(): string {
+    let value = this.get("itemTokenId");
     return value.toString();
   }
 
-  set ItemTokenId(value: string) {
-    this.set("ItemTokenId", Value.fromString(value));
+  set itemTokenId(value: string) {
+    this.set("itemTokenId", Value.fromString(value));
+  }
+
+  get owner(): Bytes {
+    let value = this.get("owner");
+    return value.toBytes();
+  }
+
+  set owner(value: Bytes) {
+    this.set("owner", Value.fromBytes(value));
   }
 }
