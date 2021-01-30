@@ -114,3 +114,28 @@ dataSources:
           handler: handleStaked
         - event: Withdrawn(indexed address,uint256)
           handler: handleWithdrawn
+
+  - kind: ethereum/contract
+    name: LandResource
+    network: ropsten
+    source:
+      address: "0xD22065369994568096FB841e024462F4d7F5f2f9"
+      abi: LandResource
+      startBlock: 9150517
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/landResource.ts
+      entities:
+        - ItemEquip
+      abis:
+        - name: LandResource
+          file: ./abis/landResource.json
+        - name: ISettingsRegistry
+          file: ./abis/ISettingsRegistry.json
+      eventHandlers:
+        - event: Equip(indexed uint256,address,uint256,address,address,uint256)
+          handler: handleEquip
+        - event: Divest(indexed uint256,address,uint256,address,address,uint256)
+          handler: handleDivest

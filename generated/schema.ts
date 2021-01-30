@@ -457,3 +457,70 @@ export class StakedReward extends Entity {
     this.set("owner", Value.fromBytes(value));
   }
 }
+
+export class ItemEquip extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save ItemEquip entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save ItemEquip entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("ItemEquip", id.toString(), this);
+  }
+
+  static load(id: string): ItemEquip | null {
+    return store.get("ItemEquip", id) as ItemEquip | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get resource(): string {
+    let value = this.get("resource");
+    return value.toString();
+  }
+
+  set resource(value: string) {
+    this.set("resource", Value.fromString(value));
+  }
+
+  get landTokenId(): string {
+    let value = this.get("landTokenId");
+    return value.toString();
+  }
+
+  set landTokenId(value: string) {
+    this.set("landTokenId", Value.fromString(value));
+  }
+
+  get index(): i32 {
+    let value = this.get("index");
+    return value.toI32();
+  }
+
+  set index(value: i32) {
+    this.set("index", Value.fromI32(value));
+  }
+
+  get ItemTokenId(): string {
+    let value = this.get("ItemTokenId");
+    return value.toString();
+  }
+
+  set ItemTokenId(value: string) {
+    this.set("ItemTokenId", Value.fromString(value));
+  }
+}

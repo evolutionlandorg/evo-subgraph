@@ -74,3 +74,21 @@ type StakedReward @entity {
   amount: BigDecimal!
   owner: Bytes!
 }
+
+enum ResourceType {
+    gold
+    wood
+    water
+    fire
+    soil
+}
+
+
+type ItemEquip @entity {
+  id: ID!
+  resource: ResourceType!
+  landTokenId: String!
+  index: Int!
+  ItemTokenId: String!
+}
+
