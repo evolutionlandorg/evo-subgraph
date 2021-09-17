@@ -1,0 +1,28 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Governance
+    network: matic
+    source:
+      address: "0xCB41aA8585A1D9bC1E824478BA3594e34C5008e3"
+      abi: EvolutionTeller
+      startBlock: 19190000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/evolutionTeller.ts
+      entities:
+        - StakedHistory
+      abis:
+        - name: EvolutionTeller
+          file: ./abis/evolutionTeller.json
+      eventHandlers:
+        - event: RewardPaid(indexed address,uint256)
+          handler: handleRewardPaid
+        - event: Staked(indexed address,uint256)
+          handler: handleStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handleWithdrawn
