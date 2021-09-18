@@ -6,7 +6,7 @@ dataSources:
     name: Governance
     network: matic
     source:
-      address: "0xCB41aA8585A1D9bC1E824478BA3594e34C5008e3"
+      address: "0x58Ab1d54f43f26803aac72003B1148D0c0616097"
       abi: EvolutionTeller
       startBlock: 19190000
     mapping:
